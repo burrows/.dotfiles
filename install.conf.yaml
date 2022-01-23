@@ -5,3 +5,6 @@
     ~/.inputrc: inputrc
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
+    ~/.config/kitty/kitty.conf:
+      create: true
+      path: kitty.conf
