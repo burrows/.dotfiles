@@ -3,6 +3,7 @@ export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 export EDITOR=nvim
 export PAGER="less -R"
 export INPUTRC=~/.inputrc
+export KEYTIMEOUT=1 # makes entering normal mode instant
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

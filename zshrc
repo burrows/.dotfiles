@@ -17,8 +17,6 @@ antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/npm
 antibody bundle romkatv/powerlevel10k
 
-set -o vi
-
 alias less='less -r'
 alias ls='gls --classify --color'
 alias ll='gls -ltr --classif --color'
@@ -63,3 +61,6 @@ alias kp-pgdump='kubectl --context=production -n truleo exec -c leads-debug lead
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Set vi edit mode
+bindkey -v
