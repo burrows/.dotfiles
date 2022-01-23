@@ -8,3 +8,4 @@
     ~/.config/kitty/kitty.conf:
       create: true
       path: kitty.conf
+    ~/.config/nvim: nvim
