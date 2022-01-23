@@ -5,7 +5,6 @@
     ~/.inputrc: inputrc
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
-    ~/.config/kitty/kitty.conf:
-      create: true
-      path: kitty.conf
+    ~/.p10k.zsh: p10k.zsh
+    ~/.config/kitty: kitty
     ~/.config/nvim: nvim
