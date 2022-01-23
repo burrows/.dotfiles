@@ -3,5 +3,5 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.inputrc: inputrc
-
-
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
