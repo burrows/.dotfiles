@@ -77,6 +77,13 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
 
+  -- Prettier
+  use {
+    "prettier/vim-prettier",
+    run = 'npm install',
+    branch = 'release/0.x',
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
