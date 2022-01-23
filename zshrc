@@ -45,8 +45,6 @@ alias kp-debug='kubectl --context=production -n truleo exec -c leads-debug leads
 alias kp-pg='kubectl --context=production -n truleo exec -c leads-debug leads-debug-0 -ti -- pg'
 alias kp-pgdump='kubectl --context=production -n truleo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
 
-export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
-
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
 }
