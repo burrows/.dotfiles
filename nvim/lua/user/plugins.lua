@@ -50,12 +50,7 @@ return packer.startup(function(use)
     run = 'npm install',
     branch = 'release/0.x',
   }
-  use {
-    "numToStr/Comment.nvim",
-    config = function()
-        require('Comment').setup()
-    end
-  }
+  use "numToStr/Comment.nvim"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
@@ -85,6 +80,7 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
