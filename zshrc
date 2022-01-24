@@ -18,6 +18,7 @@ antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/npm
 antibody bundle romkatv/powerlevel10k
 antibody bundle dracula/zsh
+antibody bundle zsh-users/zsh-autosuggestions
 
 alias less='less -r'
 alias ls='gls --classify --color'
