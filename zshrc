@@ -11,6 +11,7 @@ source <(antibody init)
 # Setup required env var for oh-my-zsh plugins
 export ZSH=$(antibody path ohmyzsh/ohmyzsh)
 
+antibody bundle lukechilds/zsh-nvm
 antibody bundle ohmyzsh/ohmyzsh
 antibody bundle ohmyzsh/ohmyzsh path:plugins/cp
 antibody bundle ohmyzsh/ohmyzsh path:plugins/git
