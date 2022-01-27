@@ -51,6 +51,7 @@ return packer.startup(function(use)
     branch = 'release/0.x',
   }
   use "numToStr/Comment.nvim"
+  use "pangloss/vim-javascript"
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
