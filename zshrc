@@ -26,6 +26,7 @@ alias ll='gls -ltr --classif --color'
 alias grep='grep --color'
 alias ack='ag'
 alias vim='nvim'
+alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:/tmp/mykitty'
 
 # Truleo
 alias leads='cd ~/code/truleo/leads'
