@@ -24,6 +24,10 @@ antibody bundle zsh-users/zsh-autosuggestions
 unsetopt inc_append_history
 unsetopt share_history
 
+# put cursor at beginning of line when navigating history
+bindkey -a j vi-down-line-or-history
+bindkey -a k vi-up-line-or-history
+
 alias less='less -r'
 alias ls='gls --classify --color'
 alias ll='gls -ltr --classif --color'
