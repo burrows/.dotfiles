@@ -20,6 +20,10 @@ antibody bundle romkatv/powerlevel10k
 antibody bundle dracula/zsh
 antibody bundle zsh-users/zsh-autosuggestions
 
+# unique history per terminal
+unsetopt inc_append_history
+unsetopt share_history
+
 alias less='less -r'
 alias ls='gls --classify --color'
 alias ll='gls -ltr --classif --color'
