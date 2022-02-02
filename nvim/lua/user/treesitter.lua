@@ -9,7 +9,7 @@ configs.setup {
     additional_vim_regex_highlighting = true,
 
   },
-  indent = { enable = true, disable = { "yaml" } },
+  indent = { enable = false, disable = { "yaml" } },
   rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
