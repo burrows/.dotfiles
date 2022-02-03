@@ -85,6 +85,7 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
