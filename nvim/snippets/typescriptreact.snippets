@@ -1,0 +1,44 @@
+snippet rfc
+	import React from 'react';
+	
+	export interface ${1:ComponentName}Props {
+	}
+	
+	const ${1}: React.FC<${1}Props> = ({}) => {
+	  return (
+	    <div className="${1}">
+			  $0
+	    </div>
+	  );
+	};
+	
+	export default ${1};
+
+snippet rcc
+	import React from 'react';
+	import { Dispatch } from 'redux';
+	import { connect, ConnectedProps } from 'react-redux';
+	
+	import { AppState, Evt } from '../../types';
+	
+	interface StateProps {
+	}
+	
+	const mapStateToProps = (state: AppState): StateProps => ({
+	});
+	
+	const connector = connect(mapStateToProps, (dispatch: Dispatch<Evt>) => ({
+	  dispatch,
+	}));
+	
+	const ${1:ComponentName}: React.FC<ConnectedProps<typeof connector>> = ({
+	  dispatch,
+	}) => {
+	  return (
+	    <div className="${1}">
+			  $0
+	    </div>
+	  );
+	};
+	
+	export default connector(${1});
