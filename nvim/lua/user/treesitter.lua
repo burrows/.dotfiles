@@ -31,6 +31,8 @@ configs.setup {
 
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@conditional.outer",
