@@ -1,0 +1,9 @@
+snippet er
+	router.${1|get,put,post,delete|}(
+	  '${2:route}',
+	  wrap(async (req: Request, res: Response) => {
+		  $0
+	  })
+	);
+
+
