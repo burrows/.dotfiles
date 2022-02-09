@@ -30,7 +30,7 @@ bindkey -a k vi-up-line-or-history
 
 alias less='less -r'
 alias ls='gls --classify --color'
-alias ll='gls -ltr --classif --color'
+alias ll='gls -ltr --classify --color'
 alias grep='grep --color'
 alias ack='ag'
 alias vim='nvim'
@@ -40,6 +40,12 @@ alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on uni
 alias leads='cd ~/code/truleo/leads'
 alias client='cd ~/code/truleo/leads/client'
 alias server='cd ~/code/truleo/leads/server'
+alias sl='npm run server:lint'
+alias st='npm run server:test'
+alias slt='npm run server:lint && npm run server:test'
+alias cl='npm run client:lint'
+alias ct='npm run client:test'
+alias clt='npm run client:lint && npm run client:test'
 
 alias ks='kubectl --context=staging -n truleo'
 alias ss='stern --context=staging -n truleo'
