@@ -1,3 +1,7 @@
 [user]
-	name = Corey Burrows
-	email = corey.burrows@gmail.com
+  name = Corey Burrows
+  email = corey.burrows@gmail.com
+[alias]
+  po = push -u origin HEAD
+  pof = push -u -f origin HEAD
+  cb = rev-parse --abbrev-ref HEAD
