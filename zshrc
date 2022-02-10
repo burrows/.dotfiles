@@ -45,6 +45,7 @@ alias st='npm run server:test'
 alias slt='npm run server:lint && npm run server:test'
 alias cl='npm run client:lint'
 alias ct='npm run client:test'
+alias ctw='npm run client:test:watch'
 alias clt='npm run client:lint && npm run client:test'
 
 alias ks='kubectl --context=staging -n truleo'
