@@ -6,4 +6,35 @@ snippet er
 	  })
 	);
 
+snippet st
+	s.state('$1', (s) => {
+	  $0
+	});
 
+snippet en
+	s.enter((ctx, evt) => {
+	  $0
+	  return {
+		  context: {...ctx},
+		  effects: [],
+		}
+	});
+
+snippet ex
+	s.exit((ctx, evt) => {
+	  $0
+	  return {
+		  context: {...ctx},
+		  effects: [],
+		}
+	});
+
+snippet on
+	s.on('$1', (ctx, evt) => {
+	  $0
+	  return {
+		  context: {...ctx},
+		  effects: [],
+			goto: '',
+		}
+	});
