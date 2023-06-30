@@ -16,6 +16,7 @@ antibody bundle ohmyzsh/ohmyzsh
 antibody bundle ohmyzsh/ohmyzsh path:plugins/cp
 antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/npm
+antibody bundle ohmyzsh/ohmyzsh path:plugins/aws
 antibody bundle romkatv/powerlevel10k
 antibody bundle dracula/zsh
 antibody bundle zsh-users/zsh-autosuggestions
@@ -30,7 +31,7 @@ bindkey -a k vi-up-line-or-history
 
 alias less='less -r'
 alias ls='gls --classify --color'
-alias ll='gls -ltr --classify --color'
+alias ll='gls -lhtr --classify --color'
 alias grep='grep --color'
 alias ack='ag'
 alias vim='nvim'
@@ -48,35 +49,41 @@ alias ct='npm run client:test'
 alias ctw='npm run client:test:watch'
 alias clt='npm run client:lint && npm run client:test'
 
-alias ks='kubectl --context=staging -n truleo'
-alias ss='stern --context=staging -n truleo'
-alias ks-debug='kubectl --context=staging -n truleo exec -c leads-debug leads-debug-0 -ti -- sh'
-alias ks-pg='kubectl --context=staging -n truleo exec -c leads-debug leads-debug-0 -ti -- pg'
-alias ks-pgdump='kubectl --context=staging -n truleo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
+alias ks='kubectl --context=staging --namespace=truleo'
+alias ss='stern --context=staging --namespace=truleo'
+alias ks-debug='kubectl --context=staging  --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- sh'
+alias ks-pg='kubectl --context=staging --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- pg'
+alias ks-pgdump='kubectl --context=staging --namespace=truleo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
 
-alias ku='kubectl --context=uat'
-alias su='stern --context=uat'
-alias ku-debug='kubectl --context=uat exec -c leads-debug leads-debug-0 -ti -- sh'
-alias ku-pg='kubectl --context=uat exec -c leads-debug leads-debug-0 -ti -- pg'
-alias ku-pgdump='kubectl --context=uat exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
+alias kd='kubectl --context=staging --namespace=truleo-demo'
+alias sd='stern --context=staging --namespace=truleo-demo'
+alias kd-debug='kubectl --context=staging --namespace=truleo-demo exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kd-pg='kubectl --context=staging --namespace=truleo-demo exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kd-pgdump='kubectl --context=staging --namespace=truleo-demo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
-alias ke='kubectl --context=endor'
-alias se='stern --context=endor'
-alias ke-debug='kubectl --context=endor exec -c leads-debug leads-debug-0 -ti -- sh'
-alias ke-pg='kubectl --context=endor exec -c leads-debug leads-debug-0 -ti -- pg'
-alias ke-pgdump='kubectl --context=endor exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
+alias ku='kubectl --context=staging --namespace=truleo-uat'
+alias su='stern --context=staging --namespace=truleo-uat'
+alias ku-debug='kubectl --context=staging --namespace=truleo-uat exec -c leads-debug leads-debug-0 -ti -- sh'
+alias ku-pg='kubectl --context=staging --namespace=truleo-uat exec -c leads-debug leads-debug-0 -ti -- pg'
+alias ku-pgdump='kubectl --context=staging --namespace=truleo-uat exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
-alias kn='kubectl --context=naboo'
-alias sn='stern --context=naboo'
-alias kn-debug='kubectl --context=naboo exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kn-pg='kubectl --context=naboo exec -c leads-debug leads-debug-0 -ti -- pg'
-alias kn-pgdump='kubectl --context=naboo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
+alias ke='kubectl --context=staging --namespace=truleo-endor'
+alias se='stern --context=staging --namespace=truleo-endor'
+alias ke-debug='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -ti -- sh'
+alias ke-pg='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -ti -- pg'
+alias ke-pgdump='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
-alias kp='kubectl --context=production -n truleo'
-alias sp='stern --context=production -n truleo'
-alias kp-debug='kubectl --context=production -n truleo exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kp-pg='kubectl --context=production -n truleo exec -c leads-debug leads-debug-0 -ti -- pg'
-alias kp-pgdump='kubectl --context=production -n truleo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME | gzip"'
+alias kn='kubectl --context=staging --namespace=truleo-naboo'
+alias sn='stern --context=staging --namespace=truleo-naboo'
+alias kn-debug='kubectl --context=staging --namespace=truleo-naboo exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kn-pg='kubectl --context=staging --namespace=truleo-naboo exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kn-pgdump='kubectl --context=staging --namespace=truleo-naboo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+
+alias kp='kubectl --context=production --namespace=truleo'
+alias sp='stern --context=production --namespace=truleo'
+alias kp-debug='kubectl --context=production --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kp-pg='kubectl --context=production --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kp-pgdump='kubectl --context=production --namespace=truleo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
