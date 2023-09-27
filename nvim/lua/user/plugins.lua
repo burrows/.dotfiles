@@ -48,7 +48,6 @@ return packer.startup(function(use)
   use {
     "prettier/vim-prettier",
     run = 'npm install',
-    branch = 'release/0.x',
   }
   use "numToStr/Comment.nvim"
   use {
@@ -76,14 +75,12 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig" -- enable LSP
   use {"williamboman/mason.nvim", run = ":MasonUpdate" } -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim"
-	use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"
   use "nvim-treesitter/playground"
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
