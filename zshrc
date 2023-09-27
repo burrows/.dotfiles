@@ -49,6 +49,10 @@ alias ct='npm run client:test'
 alias ctw='npm run client:test:watch'
 alias clt='npm run client:lint && npm run client:test'
 
+alias kube-testing='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-dev-testing'
+alias kube-testing-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-dev-testing exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kube-testing-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-dev-testing exec -c leads-debug leads-debug-0 -ti -- pg'
+
 alias kube-s='kubectl --context=staging --namespace=truleo'
 alias stern-s='stern --context=staging --namespace=truleo'
 alias kube-s-debug='kubectl --context=staging  --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- sh'
@@ -71,7 +75,7 @@ alias kube-e='kubectl --context=staging --namespace=truleo-endor'
 alias stern-e='stern --context=staging --namespace=truleo-endor'
 alias kube-e-debug='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -ti -- sh'
 alias kube-e-pg='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -ti -- pg'
-alias kube-e-pgdump='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+alias kube-e-pgdump='kubectl --context=staging --namespace=truleo-endor exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
 alias kube-n='kubectl --context=staging --namespace=truleo-naboo'
 alias stern-n='stern --context=staging --namespace=truleo-naboo'
@@ -110,3 +114,10 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# bun completions
+[ -s "/Users/corey/.bun/_bun" ] && source "/Users/corey/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
