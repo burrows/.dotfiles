@@ -5,3 +5,8 @@
   po = push -u origin HEAD
   pof = push -u -f origin HEAD
   cb = rev-parse --abbrev-ref HEAD
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
