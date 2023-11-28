@@ -10,10 +10,6 @@ configs.setup {
 
   },
   indent = { enable = false, disable = { "yaml" } },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
   textobjects = {
     select = {
       enable = true,

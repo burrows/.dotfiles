@@ -7,6 +7,10 @@ comment.setup {
   pre_hook = function(ctx)
     local U = require "Comment.utils"
 
+    require('ts_context_commentstring').setup {
+      enable_autocmd = false,
+    }
+
     local location = nil
     if ctx.ctype == U.ctype.block then
       location = require("ts_context_commentstring.utils").get_cursor_location()
