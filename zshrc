@@ -49,19 +49,18 @@ alias ct='npm run client:test'
 alias ctw='npm run client:test:watch'
 alias clt='npm run client:lint && npm run client:test'
 
-alias kube-testing='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-dev-default'
-alias kube-testing-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-dev-default exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kube-testing-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-dev-default exec -c leads-debug leads-debug-0 -ti -- pg'
-
-alias kube-e2e='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-e2e'
-alias kube-e2e-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-e2e exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kube-e2e-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-e2e exec -c leads-debug leads-debug-0 -ti -- pg'
-
+# Dev envs
 alias kube-corey='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-corey'
 alias stern-corey='stern --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-corey'
 alias kube-corey-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-corey exec -c leads-debug leads-debug-0 -ti -- sh'
 alias kube-corey-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-corey exec -c leads-debug leads-debug-0 -ti -- pg'
 alias kube-corey-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-corey exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+
+alias kube-brendan='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan'
+alias stern-brendan='stern --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan'
+alias kube-brendan-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kube-brendan-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kube-brendan-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
 alias kube-deep='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-deepsearch'
 alias stern-deep='stern --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-deepsearch'
@@ -69,23 +68,28 @@ alias kube-deep-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390
 alias kube-deep-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-deepsearch exec -c leads-debug leads-debug-0 -ti -- pg'
 alias kube-deep-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-deepsearch exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
-alias kube-demo='kubectl --context=staging --namespace=truleo-demo'
-alias stern-demo='stern --context=staging --namespace=truleo-demo'
-alias kube-demo-debug='kubectl --context=staging --namespace=truleo-demo exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kube-demo-pg='kubectl --context=staging --namespace=truleo-demo exec -c leads-debug leads-debug-0 -ti -- pg'
-alias kube-demo-pgdump='kubectl --context=staging --namespace=truleo-demo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+alias kube-pgupgrade='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-pgupgrade'
+alias stern-pgupgrade='stern --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-pgupgrade'
+alias kube-pgupgrade-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-pgupgrade exec -c leads-debug leads-debug-0 -ti -- bash'
+alias kube-pgupgrade-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-pgupgrade exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kube-pgupgrade-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-pgupgrade exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
-alias kube-uat='kubectl --context=staging --namespace=truleo-uat'
-alias stern-uat='stern --context=staging --namespace=truleo-uat'
-alias kube-uat-debug='kubectl --context=staging --namespace=truleo-uat exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kube-uat-pg='kubectl --context=staging --namespace=truleo-uat exec -c leads-debug leads-debug-0 -ti -- pg'
-alias kube-uat-pgdump='kubectl --context=staging --namespace=truleo-uat exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+# Staging Envs
+alias kube-uat='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:181734793061:cluster/truleo-stage --namespace=truleo-staging-uat'
+alias stern-uat='stern --context=arn:aws-us-gov:eks:us-gov-west-1:181734793061:cluster/truleo-stage --namespace=truleo-staging-uat'
+alias kube-uat-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:181734793061:cluster/truleo-stage --namespace=truleo-staging-uat exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kube-uat-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:181734793061:cluster/truleo-stage --namespace=truleo-staging-uat exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kube-uat-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:181734793061:cluster/truleo-stage --namespace=truleo-staging-uat exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
 
-alias kube-prod='kubectl --context=production --namespace=truleo'
-alias stern-prod='stern --context=production --namespace=truleo'
-alias kube-prod-debug='kubectl --context=production --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- sh'
-alias kube-prod-pg='kubectl --context=production --namespace=truleo exec -c leads-debug leads-debug-0 -ti -- pg'
-alias kube-prod-pgdump='kubectl --context=production --namespace=truleo exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -h \$DATABASE_HOST -U \$DATABASE_USER -d \$DATABASE_DBNAME --exclude-table-data public.waveforms --exclude-table-data public.officer_audio_samples --exclude-table-data public.officer_audio_sample_segments --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+# Production Env
+alias kube-prod='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:209603608981:cluster/truleo-prod --namespace=truleo-prod'
+alias stern-prod='stern --context=arn:aws-us-gov:eks:us-gov-west-1:209603608981:cluster/truleo-prod --namespace=truleo-prod'
+alias kube-prod-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:209603608981:cluster/truleo-prod --namespace=truleo-prod exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kube-prod-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:209603608981:cluster/truleo-prod --namespace=truleo-prod exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kube-prod-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:209603608981:cluster/truleo-prod --namespace=truleo-prod exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --exclude-table-data public.speaker_fingerprints --no-blobs | gzip"'
+
+# Buildkite
+alias kube-buildkite='kubectl -n buildkite --context ops'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
