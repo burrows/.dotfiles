@@ -16,7 +16,7 @@ snippet en
 	  $0
 	  return {
 		  context: {...ctx},
-		  effects: [],
+		  actions: [],
 		}
 	});
 
@@ -25,7 +25,7 @@ snippet ex
 	  $0
 	  return {
 		  context: {...ctx},
-		  effects: [],
+		  actions: [],
 		}
 	});
 
@@ -34,7 +34,32 @@ snippet on
 	  $0
 	  return {
 		  context: {...ctx},
-		  effects: [],
+		  actions: [],
 			goto: '',
 		}
 	});
+
+snippet mod
+  import { Model as ObjectionModel, Page, QueryBuilder } from 'objection';
+  
+  import Model from './Model';
+  
+  class ${1:ModelName}QueryBuilder<
+    M extends ObjectionModel,
+    R = M[]
+  > extends QueryBuilder<M, R> {
+    ArrayQueryBuilderType!: ${1}QueryBuilder<M, M[]>;
+    SingleQueryBuilderType!: ${1}QueryBuilder<M, M>;
+    MaybeSingleQueryBuilderType!: ${1}QueryBuilder<M, M | undefined>;
+    NumberQueryBuilderType!: ${1}QueryBuilder<M, number>;
+    PageQueryBuilderType!: ${1}QueryBuilder<M, Page<M>>;
+  }
+  
+  export default class ${1} extends Model {
+    static tableName = '$0';
+  
+    QueryBuilderType!: ${1}QueryBuilder<this>;
+    static QueryBuilder = ${1}QueryBuilder;
+  
+    public id!: number;
+  }
