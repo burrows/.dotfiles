@@ -5,6 +5,7 @@
     ~/.inputrc: inputrc
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
+    ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.p10k.zsh: p10k.zsh
     ~/.config/kitty: kitty
     ~/.config/nvim: nvim

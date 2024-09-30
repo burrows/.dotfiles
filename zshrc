@@ -5,21 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Load the Antibody plugin manager for zsh.
-source <(antibody init)
-
-# Setup required env var for oh-my-zsh plugins
-export ZSH=$(antibody path ohmyzsh/ohmyzsh)
-
-antibody bundle lukechilds/zsh-nvm
-antibody bundle ohmyzsh/ohmyzsh
-antibody bundle ohmyzsh/ohmyzsh path:plugins/cp
-antibody bundle ohmyzsh/ohmyzsh path:plugins/git
-antibody bundle ohmyzsh/ohmyzsh path:plugins/npm
-antibody bundle ohmyzsh/ohmyzsh path:plugins/aws
-antibody bundle romkatv/powerlevel10k
-antibody bundle dracula/zsh
-antibody bundle zsh-users/zsh-autosuggestions
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+antidote load
 
 # unique history per terminal
 unsetopt inc_append_history
@@ -162,13 +149,6 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-# bun completions
-[ -s "/Users/corey/.bun/_bun" ] && source "/Users/corey/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

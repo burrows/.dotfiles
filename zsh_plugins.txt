@@ -1,0 +1,9 @@
+lukechilds/zsh-nvm
+ohmyzsh/ohmyzsh
+ohmyzsh/ohmyzsh path:plugins/cp
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/aws
+romkatv/powerlevel10k
+dracula/zsh
+zsh-users/zsh-autosuggestions
