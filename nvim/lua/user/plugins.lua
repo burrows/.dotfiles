@@ -50,10 +50,6 @@ return packer.startup(function(use)
     run = 'npm install',
   }
   use "numToStr/Comment.nvim"
-  use {
-    "knubie/vim-kitty-navigator",
-    run = 'cp ./*.py ~/.config/kitty/'
-  }
 
   -- Colorschemes
   use "folke/tokyonight.nvim"
