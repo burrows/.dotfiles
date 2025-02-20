@@ -57,6 +57,12 @@ alias kube-brendan-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330
 alias kube-brendan-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan exec -c leads-debug leads-debug-0 -ti -- pg'
 alias kube-brendan-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-brendan exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --no-blobs | gzip"'
 
+alias kube-andrew='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-andrew'
+alias stern-andrew='stern --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-andrew'
+alias kube-andrew-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-andrew exec -c leads-debug leads-debug-0 -ti -- sh'
+alias kube-andrew-pg='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-andrew exec -c leads-debug leads-debug-0 -ti -- pg'
+alias kube-andrew-pgdump='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-andrew exec -c leads-debug leads-debug-0 -- sh -c "pg_dump -d \$DATABASE_CONNECTION_STRING --no-blobs | gzip"'
+
 alias kube-matthew='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-matthew'
 alias stern-matthew='stern --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-matthew'
 alias kube-matthew-debug='kubectl --context=arn:aws-us-gov:eks:us-gov-west-1:330390204086:cluster/truleo-dev --namespace=truleo-matthew exec -c leads-debug leads-debug-0 -ti -- sh'

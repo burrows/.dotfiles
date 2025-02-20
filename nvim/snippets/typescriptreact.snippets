@@ -1,14 +1,15 @@
 snippet rfc
 	import React from 'react';
+  import Box from '@mui/material/Box';
 	
 	export interface ${1:ComponentName}Props {
 	}
 	
 	const ${1}: React.FC<${1}Props> = ({}) => {
 	  return (
-	    <div className="${1}">
+	    <Box className="${1}">
 			  $0
-	    </div>
+	    </Box>
 	  );
 	};
 	
@@ -18,6 +19,7 @@ snippet rcc
 	import React from 'react';
 	import { Dispatch } from 'redux';
 	import { connect, ConnectedProps } from 'react-redux';
+  import Box from '@mui/material/Box';
 	
 	import { AppState, Evt } from '../../types';
 	
@@ -35,9 +37,9 @@ snippet rcc
 	  dispatch,
 	}) => {
 	  return (
-	    <div className="${1}">
+	    <Box className="${1}">
 			  $0
-	    </div>
+	    </Box>
 	  );
 	};
 	
